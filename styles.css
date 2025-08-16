@@ -1,0 +1,998 @@
+/* Import Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=VT323:wght@400&family=Press+Start+2P&display=swap');
+
+/* CSS Reset and Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --crimson: #DC143C;
+    --deep-navy: #0A0A23;
+    --darker-navy: #050514;
+    --white: #FFFFFF;
+    --light-gray: #E8E8E8;
+    --gray: #CCCCCC;
+    --dark-gray: #888888;
+    --green: #00FF88;
+    --pixel-border: 2px dotted var(--white);
+    --crimson-border: 2px dotted var(--crimson);
+    --shadow-white: 0 0 10px var(--white);
+    --shadow-crimson: 0 0 15px var(--crimson);
+}
+
+/* Base Styles with JS-Generated Star Background */
+body {
+    font-family: 'VT323', monospace;
+    background: linear-gradient(135deg, var(--deep-navy) 0%, var(--darker-navy) 100%);
+    color: var(--white);
+    line-height: 1.5;
+    font-size: 18px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Animated Background */
+.space-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* JS-Generated Stars */
+.star {
+    position: absolute;
+    background: var(--white);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: twinkle 3s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.planet {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--crimson);
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    animation: orbit 20s linear infinite;
+    opacity: 0.8;
+    box-shadow: var(--shadow-crimson);
+}
+
+.planet-1 {
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.planet-2 {
+    top: 30%;
+    right: 15%;
+    animation-delay: -5s;
+}
+
+.planet-3 {
+    top: 60%;
+    left: 10%;
+    animation-delay: -10s;
+}
+
+.planet-4 {
+    top: 80%;
+    right: 30%;
+    animation-delay: -15s;
+}
+
+.planet-5 {
+    top: 20%;
+    left: 70%;
+    animation-delay: -7s;
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg) translateX(50px) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translateX(50px) rotate(-360deg);
+    }
+}
+
+/* Header with Background Image */
+.header {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-bottom: var(--crimson-border);
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(10, 10, 35, 0.8), rgba(5, 5, 20, 0.9));
+    z-index: -1;
+}
+
+.game-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 48px;
+    color: var(--crimson);
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0px var(--white), 4px 4px 0px var(--darker-navy);
+    letter-spacing: 6px;
+}
+
+.subtitle {
+    font-size: 28px;
+    color: var(--light-gray);
+    margin-bottom: 40px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 0px var(--darker-navy);
+    line-height: 1.4;
+}
+
+.discord-nav-btn {
+    display: inline-block;
+    background: var(--darker-navy);
+    color: var(--white);
+    padding: 18px 36px;
+    border: var(--pixel-border);
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: var(--shadow-white);
+}
+
+.discord-nav-btn:hover {
+    background: var(--crimson);
+    border: var(--crimson-border);
+    color: var(--white);
+    box-shadow: var(--shadow-crimson);
+    transform: translateY(-2px);
+}
+
+/* Main Content */
+.main-content {
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Hero Section */
+.hero {
+    margin-bottom: 100px;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.hero-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 36px;
+    color: var(--crimson);
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 0px var(--white);
+}
+
+.hero-pitch {
+    font-size: 22px;
+    color: var(--light-gray);
+    margin-bottom: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Gameplay Video */
+.gameplay-video {
+    width: 100%;
+    max-width: 700px;
+    height: 450px;
+    margin: 50px auto;
+    background: var(--darker-navy);
+    border: var(--crimson-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: var(--shadow-crimson);
+}
+
+.video-placeholder {
+    text-align: center;
+    color: var(--gray);
+}
+
+.play-icon {
+    font-size: 48px;
+    color: var(--crimson);
+    display: block;
+    margin-bottom: 15px;
+    text-shadow: var(--shadow-white);
+}
+
+/* Features Section with Grid */
+.features {
+    margin: 60px auto;
+    max-width: 1000px;
+    background: var(--darker-navy);
+    padding: 40px;
+    border: var(--pixel-border);
+    box-shadow: var(--shadow-white);
+}
+
+.features-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    color: var(--crimson);
+    margin-bottom: 40px;
+    text-align: center;
+    text-shadow: 1px 1px 0px var(--white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: center;
+    background: var(--deep-navy);
+    padding: 25px;
+    border: var(--pixel-border);
+}
+
+.feature-image {
+    width: 100%;
+    height: 180px;
+    background: var(--darker-navy);
+    border: var(--crimson-border);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.feature-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.feature-text {
+    font-size: 18px;
+    color: var(--white);
+    font-weight: bold;
+}
+
+
+/* Hero CTA Styling */
+.hero-cta {
+    background: var(--darker-navy);
+    border: var(--crimson-border);
+    padding: 60px;
+    margin: 60px auto;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.3);
+}
+
+.signup-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 28px;
+    color: var(--crimson);
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 0px var(--white);
+}
+
+.incentive-text {
+    font-size: 20px;
+    color: var(--green);
+    margin-bottom: 35px;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px var(--darker-navy);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    text-align: left;
+}
+
+.form-input {
+    width: 100%;
+    padding: 18px;
+    background: var(--deep-navy);
+    border: var(--pixel-border);
+    color: var(--white);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border: var(--crimson-border);
+    box-shadow: var(--shadow-crimson);
+}
+
+.form-input::placeholder {
+    color: var(--gray);
+}
+
+/* Buttons */
+.cta-button {
+    font-family: 'VT323', monospace;
+    font-size: 20px;
+    padding: 20px 40px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    min-height: 48px;
+    font-weight: bold;
+}
+
+.cta-button.primary {
+    background: var(--crimson);
+    color: var(--white);
+    border: var(--crimson-border);
+    box-shadow: var(--shadow-white);
+}
+
+.cta-button.primary:hover {
+    background: var(--white);
+    color: var(--crimson);
+    border: var(--pixel-border);
+    box-shadow: var(--shadow-crimson);
+    transform: translateY(-3px);
+}
+
+/* Hero CTA Button - Clean Implementation */
+.hero-cta-button {
+    font-family: 'VT323', monospace;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 25px 50px;
+    min-height: 60px;
+    letter-spacing: 2px;
+    background: var(--crimson);
+    color: var(--white);
+    border: 2px dotted var(--white);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto 0;
+    box-shadow: 0 0 20px rgba(220, 20, 60, 0.4);
+}
+
+.hero-cta-button:hover {
+    background: var(--white);
+    color: var(--crimson);
+    border: 2px dotted var(--crimson);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Pre-Trailer Quick CTA */
+.pre-trailer-cta {
+    margin: 40px auto;
+    text-align: center;
+}
+
+.cta-quick {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 30px;
+    background: var(--crimson);
+    color: var(--white);
+    border: 2px dotted var(--white);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.3);
+}
+
+.cta-quick:hover {
+    background: var(--white);
+    color: var(--crimson);
+    border: 2px dotted var(--crimson);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.cta-button.secondary {
+    background: var(--darker-navy);
+    color: var(--white);
+    border: var(--pixel-border);
+    box-shadow: var(--shadow-white);
+}
+
+.cta-button.secondary:hover {
+    background: var(--crimson);
+    border: var(--crimson-border);
+    box-shadow: var(--shadow-crimson);
+    transform: translateY(-3px);
+}
+
+/* Discord Section */
+.discord-section {
+    margin: 100px 0;
+    text-align: center;
+    background: var(--darker-navy);
+    padding: 60px;
+    border: var(--pixel-border);
+    box-shadow: var(--shadow-white);
+}
+
+.section-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    color: var(--crimson);
+    margin-bottom: 40px;
+    text-shadow: 1px 1px 0px var(--white);
+}
+
+.discord-text {
+    font-size: 20px;
+    color: var(--light-gray);
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* Dev Log Section */
+.devlog-section {
+    margin: 100px 0;
+}
+
+.devlog-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.devlog-entry {
+    background: var(--darker-navy);
+    border: var(--pixel-border);
+    padding: 40px;
+    box-shadow: var(--shadow-white);
+}
+
+.entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.entry-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 18px;
+    color: var(--crimson);
+    text-shadow: 1px 1px 0px var(--white);
+}
+
+.entry-date {
+    font-size: 16px;
+    color: var(--gray);
+}
+
+.entry-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    text-align: center;
+}
+
+.entry-media {
+    width: 100%;
+    max-width: 400px;
+    background: var(--deep-navy);
+    border: var(--pixel-border);
+    min-height: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.devlog-img, .devlog-video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background: var(--deep-navy);
+    border: 1px solid var(--gray);
+}
+
+.devlog-video {
+    background: var(--deep-navy) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050514'/><polygon points='40,30 40,70 70,50' fill='%23DC143C'/><text x='50' y='85' text-anchor='middle' fill='%23FFFFFF' font-family='VT323' font-size='8'>Video Preview</text></svg>") center/contain no-repeat;
+}
+
+.entry-text {
+    font-size: 18px;
+    color: var(--white);
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+    background: var(--darker-navy);
+    border-top: var(--crimson-border);
+    padding: 60px 0;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--white);
+    text-decoration: none;
+    padding: 18px 24px;
+    border: var(--pixel-border);
+    background: var(--deep-navy);
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-white);
+}
+
+.social-link:hover {
+    background: var(--crimson);
+    border: var(--crimson-border);
+    box-shadow: var(--shadow-crimson);
+    transform: translateY(-2px);
+}
+
+.social-icon {
+    font-size: 20px;
+}
+
+.game-logo {
+    width: 100px;
+    height: 100px;
+    background: var(--crimson);
+    border: var(--pixel-border);
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-white);
+}
+
+.logo-text {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 24px;
+    color: var(--white);
+    text-shadow: 1px 1px 0px var(--crimson);
+}
+
+.copyright {
+    font-size: 16px;
+    color: var(--gray);
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .game-title {
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+    
+    .subtitle {
+        font-size: 24px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-pitch {
+        font-size: 19px;
+    }
+    
+    .gameplay-video {
+        height: 350px;
+    }
+    
+    .features {
+        padding: 30px 20px;
+    }
+    
+    .features-title {
+        font-size: 20px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    
+    .hero-cta {
+        padding: 45px 25px;
+    }
+    
+    .hero-cta-button {
+        font-size: 20px;
+        padding: 22px 35px;
+        letter-spacing: 1px;
+    }
+    
+    .cta-quick {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+    
+    .signup-title {
+        font-size: 22px;
+    }
+    
+    .discord-section {
+        padding: 40px 25px;
+    }
+    
+    .section-title {
+        font-size: 26px;
+    }
+    
+    .entry-content {
+        gap: 20px;
+    }
+    
+    .entry-media {
+        min-height: 180px;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+    
+    .container {
+        padding: 0 12px;
+    }
+    
+    .header {
+        padding: 40px 0;
+        min-height: 250px;
+    }
+    
+    .game-title {
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    
+    .subtitle {
+        font-size: 20px;
+        padding: 0 10px;
+        margin-bottom: 30px;
+    }
+    
+    .discord-nav-btn {
+        width: 100%;
+        max-width: 320px;
+        padding: 15px 25px;
+        font-size: 16px;
+    }
+    
+    .main-content {
+        padding: 50px 0;
+    }
+    
+    .hero-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+    
+    .hero-pitch {
+        font-size: 16px;
+        padding: 0 10px;
+        margin-bottom: 35px;
+    }
+    
+    .gameplay-video {
+        height: 280px;
+        margin: 35px auto;
+    }
+    
+    .play-icon {
+        font-size: 36px;
+    }
+    
+    .features {
+        padding: 25px 15px;
+        margin: 40px auto;
+    }
+    
+    .features-title {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .feature-item {
+        padding: 20px;
+    }
+    
+    .feature-image {
+        height: 140px;
+        margin-bottom: 15px;
+    }
+    
+    .feature-text {
+        font-size: 16px;
+    }
+    
+    
+    .hero-cta {
+        padding: 35px 15px;
+        margin: 40px auto;
+    }
+    
+    .signup-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+    
+    .incentive-text {
+        font-size: 16px;
+        margin-bottom: 25px;
+    }
+    
+    .form-input {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .cta-button {
+        width: 100%;
+        padding: 18px 25px;
+        font-size: 16px;
+        min-height: 48px;
+    }
+    
+    .hero-cta-button {
+        font-size: 18px;
+        padding: 20px 30px;
+        min-height: 50px;
+        letter-spacing: 1px;
+    }
+    
+    .cta-quick {
+        font-size: 15px;
+        padding: 10px 20px;
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .discord-section {
+        padding: 30px 15px;
+        margin: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .discord-text {
+        font-size: 16px;
+        padding: 0 10px;
+        margin-bottom: 25px;
+    }
+    
+    .devlog-section {
+        margin: 60px 0;
+    }
+    
+    .devlog-entries {
+        gap: 35px;
+    }
+    
+    .devlog-entry {
+        padding: 25px 15px;
+    }
+    
+    .entry-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .entry-title {
+        font-size: 14px;
+    }
+    
+    .entry-date {
+        font-size: 14px;
+    }
+    
+    .entry-text {
+        font-size: 16px;
+    }
+    
+    .footer {
+        padding: 40px 0;
+    }
+    
+    .social-link {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+    
+    .game-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .logo-text {
+        font-size: 18px;
+    }
+    
+    /* Hide extra planets on mobile */
+    .mobile-hidden {
+        display: none;
+    }
+}
+
+/* High DPI / Large Screen Adjustments */
+@media (min-width: 1400px) {
+    .game-title {
+        font-size: 56px;
+        letter-spacing: 8px;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .section-title {
+        font-size: 38px;
+    }
+    
+    .hero-pitch {
+        font-size: 24px;
+    }
+    
+    .gameplay-video {
+        height: 500px;
+    }
+}
+
+/* Touch-friendly enhancements */
+@media (hover: none) and (pointer: coarse) {
+    .cta-button, .social-link, .discord-nav-btn {
+        min-height: 48px;
+        padding: 18px 25px;
+    }
+    
+    .form-input {
+        min-height: 48px;
+    }
+    
+    /* Increase touch targets */
+    .feature-item {
+        padding: 30px;
+    }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .planet {
+        animation: none;
+    }
+    
+    * {
+        transition: none !important;
+    }
+    
+    .cta-button:hover,
+    .social-link:hover,
+    .discord-nav-btn:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .space-background,
+    .planet {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .header-overlay {
+        background: rgba(255, 255, 255, 0.9);
+    }
+}

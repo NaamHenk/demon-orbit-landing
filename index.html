@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demon Orbit - Cosmic Tap Defense Game | Master Rhythmic Timing</title>
+    <meta name="description" content="Tap and hold to defend planets from archdemons in this hybrid-casual game. Master rhythmic timing, collect angelic relics, and save the solar system. Join beta for 500 free Souls!">
+    <meta name="keywords" content="demon timing game, tap defense game, rhythm game, cosmic defense, hybrid casual game, tap and hold, archdemon, planet defense, indie game, mobile game, beta signup, free souls bonus, timing mechanics">
+    <meta name="author" content="Demon Orbit Team">
+    <meta property="og:title" content="Demon Orbit - Cosmic Tap Defense Game | Master Rhythmic Timing">
+    <meta property="og:description" content="Defend planets from archdemons using perfect timing! Join beta for 500 free Souls bonus.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="demon-orbit-banner.jpg">
+    <meta property="og:url" content="https://demonorbit.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Demon Orbit - Cosmic Tap Defense Game">
+    <meta name="twitter:description" content="Master rhythmic timing to defend planets from archdemons. Join beta for 500 free Souls!">
+    <meta name="twitter:image" content="demon-orbit-banner.jpg">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://demonorbit.com">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated Background Elements -->
+    <div class="space-background">
+        <div class="planet planet-1"></div>
+        <div class="planet planet-2"></div>
+        <div class="planet planet-3"></div>
+        <div class="planet planet-4 mobile-hidden"></div>
+        <div class="planet planet-5 mobile-hidden"></div>
+    </div>
+
+    <!-- Header Banner with Background Image -->
+    <header class="header" style="background-image: url('demon-orbit-banner.jpg');">
+        <div class="header-overlay"></div>
+        <div class="container">
+            <h1 class="game-title">DEMON ORBIT</h1>
+            <p class="subtitle">Master taps, holds, and angelic relics to stop Lucifer's archdemons!</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <div class="container">
+            
+            <!-- Hero Section with Primary CTA -->
+            <section class="hero" id="home">
+                <div class="hero-content">
+                    <h2 class="hero-title">Defend the Solar System</h2>
+                    <p class="hero-pitch">
+                        In Demon Orbit, defend the Solar System from escaping archdemons using rhythmic taps and precise holds. 
+                        Manage your faith resource wisely or watch sins unleash chaos across the cosmos!
+                    </p>
+                    
+                    <!-- Pre-Trailer CTA -->
+                    <div class="pre-trailer-cta">
+                        <button class="cta-quick" onclick="document.querySelector('.hero-cta').scrollIntoView({behavior: 'smooth'})">
+                            🔥 Get Free Souls Now!
+                        </button>
+                    </div>
+                    
+                    <!-- Gameplay Video Placeholder -->
+                    <div class="gameplay-video">
+                        <div class="video-placeholder">
+                            <span class="play-icon">▶</span>
+                            <p>Demon Orbit Gameplay Teaser</p>
+                        </div>
+                        <!-- Replace with actual video/GIF embed -->
+                        <!-- <iframe src="your-youtube-embed" frameborder="0" allowfullscreen></iframe> -->
+                    </div>
+
+                    <!-- Primary CTA: Email Signup (Moved to Hero) -->
+                    <div class="hero-cta">
+                        <h3 class="signup-title">Join the Warden's List</h3>
+                        <p class="incentive-text">🎁 Get 500 FREE Souls on Launch Day!</p>
+                        
+                        <form class="signup-form" id="mailchimp-form">
+                            <div class="form-group">
+                                <input type="text" class="form-input" placeholder="Your Name (Optional)" name="NAME" aria-label="Your name (optional)">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-input" placeholder="Your Email Address" name="EMAIL" required aria-label="Your email address (required)">
+                            </div>
+                            <button type="submit" class="hero-cta-button">🔥 Claim Free Souls Now!</button>
+                        </form>
+                    </div>
+
+                    <!-- Features Subsection with Images -->
+                    <div class="features">
+                        <h3 class="features-title">Game Features</h3>
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-content">
+                                    <div class="feature-image">
+                                        <img src="tap-hold-gameplay.jpg" alt="Demon Orbit rhythmic tap and hold gameplay mechanics with timing indicators" class="feature-img" width="200" height="150">
+                                    </div>
+                                    <p class="feature-text">• Rhythmic taps & precise holds</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-content">
+                                    <div class="feature-image">
+                                        <img src="sin-debuffs-screen.jpg" alt="Sin debuff system screenshot showing escalating difficulty with visual chaos effects" class="feature-img" width="200" height="150">
+                                    </div>
+                                    <p class="feature-text">• Escalating sin debuffs</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-content">
+                                    <div class="feature-image">
+                                        <img src="upgrade-paths.jpg" alt="Archangel and Demon Slayer upgrade progression trees showing divine and fury paths" class="feature-img" width="200" height="150">
+                                    </div>
+                                    <p class="feature-text">• Upgrade paths: Archangel or Demon Slayer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Discord Community Section (Secondary CTA) -->
+            <section class="discord-section" id="discord">
+                <div class="section-content">
+                    <h2 class="section-title">Join Our Community</h2>
+                    <p class="discord-text">
+                        Already joined the Warden's List? Connect with fellow defenders on Discord! 
+                        Share strategies, get exclusive dev updates, and participate in community events.
+                    </p>
+                    <a href="https://discord.gg/example" class="cta-button secondary discord-cta" target="_blank" rel="noopener" aria-label="Join Demon Orbit Discord community">
+                        💬 Join Discord Community
+                    </a>
+                </div>
+            </section>
+
+            <!-- Dev Log Section with Enhanced Media -->
+            <section class="devlog-section">
+                <div class="section-content">
+                    <h2 class="section-title">Development Log</h2>
+                    <div class="devlog-entries">
+                        
+                        <article class="devlog-entry">
+                            <div class="entry-header">
+                                <h3 class="entry-title">Week 3: Combat System Overhaul</h3>
+                                <span class="entry-date">Feb 15, 2025</span>
+                            </div>
+                            <div class="entry-content">
+                                <div class="entry-media">
+                                    <video class="devlog-video" width="400" height="225" controls poster="combat-system-poster.jpg" preload="metadata">
+                                        <source src="combat-system-demo.mp4" type="video/mp4">
+                                        <img src="combat-system-screenshot.jpg" alt="Combat system interface demo showing tap timing mechanics and perfect hit feedback with combo multipliers" width="400" height="225">
+                                    </video>
+                                </div>
+                                <div class="entry-text">
+                                    <p>
+                                        Revamped the tap timing system for more responsive demon banishing. 
+                                        Added visual feedback for perfect hits and combo multipliers that make each successful defense feel incredibly satisfying.
+                                        Watch the video to see the new particle effects and timing windows in action!
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="devlog-entry">
+                            <div class="entry-header">
+                                <h3 class="entry-title">Week 2: Angelic Relic System</h3>
+                                <span class="entry-date">Feb 8, 2025</span>
+                            </div>
+                            <div class="entry-content">
+                                <div class="entry-media">
+                                    <video class="devlog-video" width="400" height="225" controls poster="angelic-relics-poster.jpg" preload="metadata">
+                                        <source src="angelic-relics-demo.mp4" type="video/mp4">
+                                        <img src="angelic-relics-screenshot.jpg" alt="Angelic relic upgrade tree interface showing progression paths and divine abilities with glowing skill nodes" width="400" height="225">
+                                    </video>
+                                </div>
+                                <div class="entry-text">
+                                    <p>
+                                        Implemented the relic upgrade tree! Choose your path: 
+                                        Channel divine protection or unleash righteous fury against the demonic hordes. Each choice dramatically changes your playstyle and combat approach.
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="devlog-entry">
+                            <div class="entry-header">
+                                <h3 class="entry-title">Week 1: Added Surge Mechanics</h3>
+                                <span class="entry-date">Feb 1, 2025</span>
+                            </div>
+                            <div class="entry-content">
+                                <div class="entry-media">
+                                    <video class="devlog-video" width="400" height="225" controls poster="demon-surge-poster.jpg" preload="metadata">
+                                        <source src="demon-surge-demo.mp4" type="video/mp4">
+                                        <img src="demon-surge-screenshot.jpg" alt="Demon surge event gameplay showing multiple archdemons attacking planetary orbits simultaneously with chaos effects" width="400" height="225">
+                                    </video>
+                                </div>
+                                <div class="entry-text">
+                                    <p>
+                                        Surge events now spawn multiple archdemons simultaneously! 
+                                        Test your multitasking skills as chaos erupts across multiple planetary orbits. The intensity ramps up quickly - can you handle the demonic onslaught?
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="https://x.com/demonorbit" class="social-link" target="_blank" rel="noopener" aria-label="Follow Demon Orbit on X (Twitter) for game updates">
+                    <span class="social-icon">🐦</span> X (Twitter)
+                </a>
+                <a href="https://reddit.com/r/demonorbit" class="social-link" target="_blank" rel="noopener" aria-label="Join Demon Orbit Reddit community for discussions">
+                    <span class="social-icon">🔴</span> Reddit
+                </a>
+            </div>
+            
+            <div class="game-logo" aria-label="Demon Orbit game logo">
+                <span class="logo-text">DO</span>
+            </div>
+            
+            <p class="copyright">© 2025 Demon Orbit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
