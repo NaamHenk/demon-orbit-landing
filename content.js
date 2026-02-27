@@ -19,11 +19,6 @@ const CONTENT = {
     emailFieldPlaceholder: "Your Email Address",
     emailSubmitButton: "Get Early Access + 500 Souls",
     
-    // Discord Section
-    discordSectionTitle: "Join Our Community",
-    discordDescription: "Join our community for dev updates, tips, and exclusive events!",
-    discordButtonText: "Join Discord Server",
-    
     // Footer
     copyright: "© 2025 Demon Orbit. All rights reserved.",
     

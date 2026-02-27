@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeImageHandling();
     initializeAccessibility();
+    initializeCarouselDots();
 });
 
 // Load Content from content.js
@@ -493,7 +494,7 @@ function initializeScrollAnimations() {
     }, observerOptions);
     
     // Observe sections for scroll animations
-    document.querySelectorAll('.screenshots-section, .email-section, .discord-section').forEach(el => {
+    document.querySelectorAll('.screenshots-section, .email-section').forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);
     });
@@ -591,6 +592,43 @@ function initializeAccessibility() {
     document.head.appendChild(style);
 }
 
+
+// Carousel dot navigation
+function initializeCarouselDots() {
+    const carousel = document.querySelector('.screenshot-carousel');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const slides = document.querySelectorAll('.screenshot-slide');
+    if (!carousel || !dots.length || !slides.length) return;
+
+    // Click dots to scroll to slide
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const index = parseInt(this.dataset.index);
+            slides[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+    });
+
+    // Update active dot on scroll
+    carousel.addEventListener('scroll', throttle(function() {
+        const scrollLeft = carousel.scrollLeft;
+        const carouselWidth = carousel.offsetWidth;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        slides.forEach((slide, index) => {
+            const slideCenter = slide.offsetLeft - carousel.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(slideCenter - scrollLeft - carouselWidth / 2);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === closestIndex);
+        });
+    }, 100));
+}
 
 // Simple utility for throttling scroll events
 function throttle(func, wait) {

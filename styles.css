@@ -193,7 +193,7 @@ body {
 
 /* Hero Section */
 .hero {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .hero-content {
@@ -204,14 +204,14 @@ body {
     font-family: 'Press Start 2P', monospace;
     font-size: 36px;
     color: var(--crimson);
-    margin-bottom: 40px;
+    margin-bottom: 25px;
     text-shadow: 1px 1px 0px var(--white);
 }
 
 .hero-pitch {
     font-size: 22px;
     color: var(--light-gray);
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
@@ -220,49 +220,41 @@ body {
 
 /* Screenshot Showcase */
 .screenshots-section {
-    margin: 80px 0;
+    margin: 50px 0;
     text-align: center;
+}
+
+.screenshot-carousel-wrapper {
+    position: relative;
 }
 
 .screenshot-carousel {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
-    scrollbar-width: thin;
-    scrollbar-color: var(--crimson) var(--darker-navy);
-    border: var(--pixel-border);
-    background: var(--darker-navy);
-    padding: 20px;
-    box-shadow: var(--shadow-white);
+    scrollbar-width: none;
+    padding: 10px 0;
 }
 
 .screenshot-carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.screenshot-carousel::-webkit-scrollbar-track {
-    background: var(--darker-navy);
-}
-
-.screenshot-carousel::-webkit-scrollbar-thumb {
-    background: var(--crimson);
-    border: 1px solid var(--white);
+    display: none;
 }
 
 .screenshot-track {
     display: flex;
     gap: 20px;
     width: max-content;
+    padding: 0 20px;
     margin: 0 auto;
 }
 
 .screenshot-slide {
     scroll-snap-align: center;
     flex: 0 0 auto;
-    width: 400px;
-    max-width: 80vw;
+    width: 220px;
     background: var(--deep-navy);
     border: var(--crimson-border);
+    border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -276,22 +268,53 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    aspect-ratio: 16/9;
-    object-fit: cover;
 }
 
 .screenshot-caption {
     font-family: 'VT323', monospace;
     font-size: 16px;
     color: var(--gray);
-    padding: 12px 15px;
+    padding: 10px 12px;
     text-align: center;
     border-top: 1px dotted var(--crimson);
 }
 
+/* Carousel dot indicators */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dark-gray);
+    border: 1px solid var(--gray);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--crimson);
+    border-color: var(--white);
+    box-shadow: 0 0 8px rgba(220, 20, 60, 0.5);
+}
+
 /* Email Section */
 .email-section {
-    margin: 80px 0;
+    margin: 50px 0;
+}
+
+/* Form Trust Signal */
+.form-trust {
+    font-family: 'VT323', monospace;
+    font-size: 14px;
+    color: var(--dark-gray);
+    margin-top: 12px;
+    text-align: center;
 }
 
 /* Form Status */
@@ -305,30 +328,27 @@ body {
 
 /* Hero Secondary Link */
 .hero-secondary-link {
-    margin-top: 20px;
+    margin-top: 15px;
     text-align: center;
 }
 
 .tiktok-subtle-link {
-    color: var(--gray);
-    text-decoration: none;
+    color: var(--light-gray);
+    text-decoration: underline;
+    text-underline-offset: 3px;
     font-family: 'VT323', monospace;
-    font-size: 18px;
-    border-bottom: 1px dotted var(--gray);
+    font-size: 16px;
     transition: all 0.3s ease;
+    opacity: 0.7;
 }
 
 .tiktok-subtle-link:hover {
     color: var(--crimson);
-    border-bottom-color: var(--crimson);
+    opacity: 1;
 }
 
-/* Community Links */
-.community-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+.tiktok-icon {
+    margin-right: 4px;
 }
 
 /* Hero CTA Styling */
@@ -451,7 +471,7 @@ body {
 
 /* Pre-Trailer Quick CTA */
 .pre-trailer-cta {
-    margin: 40px auto;
+    margin: 25px auto;
     text-align: center;
 }
 
@@ -492,32 +512,12 @@ body {
     transform: translateY(-3px);
 }
 
-/* Discord Section */
-.discord-section {
-    margin: 100px 0;
-    text-align: center;
-    background: var(--darker-navy);
-    padding: 60px;
-    border: var(--pixel-border);
-    box-shadow: var(--shadow-white);
-}
-
 .section-title {
     font-family: 'Press Start 2P', monospace;
     font-size: 32px;
     color: var(--crimson);
     margin-bottom: 40px;
     text-shadow: 1px 1px 0px var(--white);
-}
-
-.discord-text {
-    font-size: 20px;
-    color: var(--light-gray);
-    margin-bottom: 40px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
 }
 
 /* Footer */
@@ -614,40 +614,32 @@ body {
     }
     
     .screenshot-slide {
-        width: 300px;
-    }
-
-    .screenshot-carousel {
-        padding: 15px;
+        width: 200px;
     }
 
     .hero-cta {
         padding: 45px 25px;
     }
-    
+
     .hero-cta-button {
         font-size: 20px;
         padding: 22px 35px;
         letter-spacing: 1px;
     }
-    
+
     .cta-quick {
         font-size: 16px;
         padding: 12px 25px;
     }
-    
+
     .signup-title {
         font-size: 22px;
     }
-    
-    .discord-section {
-        padding: 40px 25px;
-    }
-    
+
     .section-title {
         font-size: 26px;
     }
-    
+
     .social-links {
         flex-direction: column;
         align-items: center;
@@ -690,37 +682,48 @@ body {
     }
     
     .main-content {
-        padding: 50px 0;
+        padding: 30px 0;
     }
-    
+
+    .hero {
+        margin-bottom: 30px;
+    }
+
     .hero-title {
         font-size: 22px;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
-    
+
     .hero-pitch {
         font-size: 16px;
         padding: 0 10px;
-        margin-bottom: 35px;
-    }
-    
-    .screenshot-slide {
-        width: 260px;
-        max-width: 85vw;
+        margin-bottom: 20px;
     }
 
-    .screenshot-carousel {
-        padding: 10px;
+    .pre-trailer-cta {
+        margin: 15px auto;
+    }
+
+    .screenshot-slide {
+        width: 180px;
     }
 
     .screenshot-caption {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .screenshots-section {
+        margin: 30px 0;
+    }
+
+    .email-section {
+        margin: 30px 0;
     }
 
     .hero-cta {
-        padding: 35px 15px;
-        margin: 40px auto;
+        padding: 30px 15px;
+        margin: 0 auto;
     }
     
     .signup-title {
@@ -759,22 +762,11 @@ body {
         max-width: 280px;
     }
     
-    .discord-section {
-        padding: 30px 15px;
-        margin: 60px 0;
-    }
-    
     .section-title {
         font-size: 20px;
         margin-bottom: 25px;
     }
-    
-    .discord-text {
-        font-size: 16px;
-        padding: 0 10px;
-        margin-bottom: 25px;
-    }
-    
+
     .footer {
         padding: 40px 0;
     }
@@ -822,7 +814,7 @@ body {
     }
 
     .screenshot-slide {
-        width: 500px;
+        width: 280px;
     }
 }
 
