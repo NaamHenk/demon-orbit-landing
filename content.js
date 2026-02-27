@@ -11,14 +11,13 @@ const CONTENT = {
     
     // Hero Section
     heroPitch: "In Demon Orbit, defend the Solar System from escaping archdemons using rhythmic taps and precise holds. Manage your faith resource wisely or watch sins unleash chaos across the cosmos!",
-    primaryCTA: "🔥 Claim Free Souls Now!",
-    
+    primaryCTA: "Get Early Access",
+
     // Email Signup Section
     emailSectionTitle: "Join the Warden's List",
-    emailIncentive: "🎁 Get 500 FREE Souls on Launch Day!",
-    nameFieldPlaceholder: "Your Name (Optional)",
+    emailIncentive: "Get 500 FREE Souls on Launch Day!",
     emailFieldPlaceholder: "Your Email Address",
-    emailSubmitButton: "🔥 Claim Free Souls Now!",
+    emailSubmitButton: "Get Early Access + 500 Souls",
     
     // Discord Section
     discordSectionTitle: "Join Our Community",
@@ -29,23 +28,22 @@ const CONTENT = {
     copyright: "© 2025 Demon Orbit. All rights reserved.",
     
     // Links
-    discordInvite: "https://discord.gg/example",
+    discordInvite: "https://discord.gg/bA3EVRBx",
     twitterUrl: "https://x.com/demonorbit",
-    redditUrl: "https://reddit.com/r/demonorbit",
+    tiktokUrl: "https://www.tiktok.com/@demonorbit",
     
     // Success Messages
-    emailSuccessMessage: "Welcome to the Warden's List! Prepare for battle...",
+    emailSuccessMessage: "You're in! Check your email to confirm. 500 Souls await on launch day.",
     emailErrorMessage: "Please enter a valid email address."
 };
 
 // DEPLOYMENT CHECKLIST:
-// 1. Replace placeholder image URLs with real assets
-// 2. Update Discord invite link: CONTENT.discordInvite
-// 3. Connect email form to actual service (Mailchimp/ConvertKit)
-// 4. Add Google Analytics tracking ID
-// 5. Test on mobile devices
-// 6. Optimize images (WebP format recommended)
-// 7. Set up domain and SSL certificate
+// 1. Update Discord invite link: CONTENT.discordInvite
+// 2. MailerLite form is live - verify signups arrive in dashboard
+// 3. Add Google Analytics tracking ID
+// 4. Test on mobile devices
+// 5. Optimize images (WebP format recommended)
+// 6. Set up domain and SSL certificate
 
 // Export for use in other files
 if (typeof module !== 'undefined') {

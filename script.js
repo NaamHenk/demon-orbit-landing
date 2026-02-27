@@ -38,15 +38,19 @@ function loadContent() {
     if (submitButton) submitButton.textContent = CONTENT.emailSubmitButton;
     
     // Update placeholders
-    const nameInput = document.querySelector('input[name="NAME"]');
-    if (nameInput) nameInput.placeholder = CONTENT.nameFieldPlaceholder;
-    
-    const emailInput = document.querySelector('input[name="EMAIL"]');
+    const emailInput = document.querySelector('input[name="fields[email]"]');
     if (emailInput) emailInput.placeholder = CONTENT.emailFieldPlaceholder;
-    
+
+    // Update CTA button text
+    const ctaQuickButton = document.querySelector('.cta-quick');
+    if (ctaQuickButton) ctaQuickButton.textContent = CONTENT.primaryCTA;
+
     // Update links
     const discordLinks = document.querySelectorAll('a[href*="discord"]');
     discordLinks.forEach(link => link.href = CONTENT.discordInvite);
+
+    const tiktokLinks = document.querySelectorAll('a[href*="tiktok"]');
+    tiktokLinks.forEach(link => link.href = CONTENT.tiktokUrl);
 }
 
 // Generate Random Starry Background
@@ -118,23 +122,16 @@ function handleHeaderScroll() {
 
 // Enhanced Form Handling with Better UX
 function initializeFormHandling() {
-    const form = document.getElementById('mailchimp-form');
+    const form = document.getElementById('mailerlite-form');
     if (form) {
         form.addEventListener('submit', handleFormSubmission);
-        
-        // Add real-time validation with better feedback
-        const emailInput = form.querySelector('input[name="EMAIL"]');
-        const nameInput = form.querySelector('input[name="NAME"]');
-        
+
+        const emailInput = form.querySelector('input[name="fields[email]"]');
+
         if (emailInput) {
             emailInput.addEventListener('blur', validateEmail);
             emailInput.addEventListener('input', clearValidationError);
             emailInput.addEventListener('focus', highlightInput);
-        }
-        
-        if (nameInput) {
-            nameInput.addEventListener('focus', highlightInput);
-            nameInput.addEventListener('blur', unhighlightInput);
         }
     }
 }
@@ -153,46 +150,55 @@ function unhighlightInput(e) {
 
 function handleFormSubmission(e) {
     e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    const email = formData.get('EMAIL');
-    const name = formData.get('NAME');
-    
-    // Validate email
+
+    const form = e.target;
+    const formData = new FormData(form);
+    const email = formData.get('fields[email]');
+
     if (!isValidEmail(email)) {
-        showMessage('Please enter a valid email address to join the Warden\'s List!', 'error');
+        showFormStatus(form, CONTENT.emailErrorMessage, 'error');
         return;
     }
-    
-    // Show loading state with better UX
-    const submitButton = this.querySelector('.cta-button');
+
+    const submitButton = form.querySelector('.hero-cta-button');
     const originalText = submitButton.textContent;
-    submitButton.textContent = 'Joining the Fight...';
+    submitButton.textContent = 'Submitting...';
     submitButton.disabled = true;
     submitButton.style.opacity = '0.7';
-    
-    // Add loading animation
-    submitButton.style.animation = 'pulse 1s infinite';
-    
-    // Simulate API call (replace with actual Mailchimp integration)
-    setTimeout(() => {
-        // Reset button
+
+    const actionUrl = form.getAttribute('action');
+
+    fetch(actionUrl, {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+    })
+    .then(() => {
         submitButton.textContent = originalText;
         submitButton.disabled = false;
         submitButton.style.opacity = '1';
-        submitButton.style.animation = '';
-        
-        // Show success message
-        showMessage('Welcome to the Warden\'s List! Your 500 Souls await on launch day. Prepare for battle!', 'success');
-        
-        // Reset form
-        this.reset();
-        
-        // Track conversion event
-        trackSignup(email, name);
-        
-    }, 2000);
+        showFormStatus(form, CONTENT.emailSuccessMessage, 'success');
+        form.reset();
+        trackSignup(email);
+    })
+    .catch(() => {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        submitButton.style.opacity = '1';
+        showFormStatus(form, 'Something went wrong. Please try again.', 'error');
+    });
+}
+
+function showFormStatus(form, message, type) {
+    const statusEl = form.querySelector('.form-status');
+    if (!statusEl) return;
+
+    statusEl.textContent = message;
+    statusEl.style.color = type === 'success' ? 'var(--green)' : 'var(--crimson)';
+
+    setTimeout(() => {
+        statusEl.textContent = '';
+    }, 8000);
 }
 
 function validateEmail(e) {
@@ -354,11 +360,10 @@ function showMessage(message, type) {
 }
 
 // Analytics and Tracking
-function trackSignup(email, name) {
+function trackSignup(email) {
     // Enhanced analytics tracking
     const signupData = {
         email,
-        name,
         timestamp: new Date().toISOString(),
         source: 'landing_page',
         campaign: 'beta_signup'
@@ -397,17 +402,6 @@ function initializeAnimations() {
         button.addEventListener('mouseleave', removeEnhancedHover);
         button.addEventListener('click', addEnhancedClick);
     });
-    
-    // Enhanced video placeholder interaction
-    const videoPlaceholder = document.querySelector('.gameplay-video');
-    if (videoPlaceholder) {
-        videoPlaceholder.addEventListener('click', handleVideoClick);
-        videoPlaceholder.addEventListener('mouseenter', addVideoHover);
-        videoPlaceholder.addEventListener('mouseleave', removeVideoHover);
-        videoPlaceholder.style.cursor = 'pointer';
-        videoPlaceholder.setAttribute('tabindex', '0');
-        videoPlaceholder.setAttribute('aria-label', 'Click to watch gameplay trailer');
-    }
     
     // Add parallax effect to planets with better performance
     window.addEventListener('scroll', throttle(handlePlanetParallax, 16));
@@ -471,34 +465,6 @@ function addEnhancedClick(e) {
     setTimeout(() => clickEffect.remove(), 800);
 }
 
-function addVideoHover(e) {
-    const playIcon = e.target.querySelector('.play-icon');
-    if (playIcon) {
-        playIcon.style.transform = 'scale(1.2)';
-        playIcon.style.textShadow = '0 0 20px var(--white)';
-    }
-}
-
-function removeVideoHover(e) {
-    const playIcon = e.target.querySelector('.play-icon');
-    if (playIcon) {
-        playIcon.style.transform = 'scale(1)';
-        playIcon.style.textShadow = '0 0 10px var(--white)';
-    }
-}
-
-function handleVideoClick() {
-    // Enhanced video functionality
-    showMessage('Gameplay trailer coming soon! Sign up to be notified when it\'s ready. 🎮', 'success');
-    
-    // Add video click animation
-    const video = document.querySelector('.gameplay-video');
-    video.style.animation = 'pulse 0.5s ease-out';
-    setTimeout(() => {
-        video.style.animation = '';
-    }, 500);
-}
-
 function handlePlanetParallax() {
     const scrolled = window.pageYOffset;
     const planets = document.querySelectorAll('.planet');
@@ -527,7 +493,7 @@ function initializeScrollAnimations() {
     }, observerOptions);
     
     // Observe sections for scroll animations
-    document.querySelectorAll('.features, .email-signup, .discord-section, .devlog-entry').forEach(el => {
+    document.querySelectorAll('.screenshots-section, .email-section, .discord-section').forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);
     });
@@ -613,17 +579,6 @@ function handleImageError(e) {
 
 // Essential Accessibility
 function initializeAccessibility() {
-    // Basic keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            const focused = document.activeElement;
-            if (focused.classList.contains('gameplay-video')) {
-                e.preventDefault();
-                handleVideoClick();
-            }
-        }
-    });
-    
     // Simple focus styles
     const style = document.createElement('style');
     style.textContent = `

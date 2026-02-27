@@ -218,90 +218,118 @@ body {
     line-height: 1.6;
 }
 
-/* Gameplay Video */
-.gameplay-video {
-    width: 100%;
-    max-width: 700px;
-    height: 450px;
-    margin: 50px auto;
-    background: var(--darker-navy);
-    border: var(--crimson-border);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    box-shadow: var(--shadow-crimson);
-}
-
-.video-placeholder {
+/* Screenshot Showcase */
+.screenshots-section {
+    margin: 80px 0;
     text-align: center;
-    color: var(--gray);
 }
 
-.play-icon {
-    font-size: 48px;
-    color: var(--crimson);
-    display: block;
-    margin-bottom: 15px;
-    text-shadow: var(--shadow-white);
-}
-
-/* Features Section with Grid */
-.features {
-    margin: 60px auto;
-    max-width: 1000px;
-    background: var(--darker-navy);
-    padding: 40px;
+.screenshot-carousel {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--crimson) var(--darker-navy);
     border: var(--pixel-border);
+    background: var(--darker-navy);
+    padding: 20px;
     box-shadow: var(--shadow-white);
 }
 
-.features-title {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 24px;
-    color: var(--crimson);
-    margin-bottom: 40px;
-    text-align: center;
-    text-shadow: 1px 1px 0px var(--white);
+.screenshot-carousel::-webkit-scrollbar {
+    height: 8px;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-
-.feature-item {
-    text-align: center;
-    background: var(--deep-navy);
-    padding: 25px;
-    border: var(--pixel-border);
-}
-
-.feature-image {
-    width: 100%;
-    height: 180px;
+.screenshot-carousel::-webkit-scrollbar-track {
     background: var(--darker-navy);
-    border: var(--crimson-border);
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
 }
 
-.feature-img {
-    max-width: 100%;
+.screenshot-carousel::-webkit-scrollbar-thumb {
+    background: var(--crimson);
+    border: 1px solid var(--white);
+}
+
+.screenshot-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    margin: 0 auto;
+}
+
+.screenshot-slide {
+    scroll-snap-align: center;
+    flex: 0 0 auto;
+    width: 400px;
+    max-width: 80vw;
+    background: var(--deep-navy);
+    border: var(--crimson-border);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.screenshot-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-crimson);
+}
+
+.screenshot-img {
+    width: 100%;
     height: auto;
     display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
 }
 
-.feature-text {
+.screenshot-caption {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    color: var(--gray);
+    padding: 12px 15px;
+    text-align: center;
+    border-top: 1px dotted var(--crimson);
+}
+
+/* Email Section */
+.email-section {
+    margin: 80px 0;
+}
+
+/* Form Status */
+.form-status {
+    font-family: 'VT323', monospace;
+    font-size: 16px;
+    margin-top: 15px;
+    min-height: 20px;
+    text-align: center;
+}
+
+/* Hero Secondary Link */
+.hero-secondary-link {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.tiktok-subtle-link {
+    color: var(--gray);
+    text-decoration: none;
+    font-family: 'VT323', monospace;
     font-size: 18px;
-    color: var(--white);
-    font-weight: bold;
+    border-bottom: 1px dotted var(--gray);
+    transition: all 0.3s ease;
 }
 
+.tiktok-subtle-link:hover {
+    color: var(--crimson);
+    border-bottom-color: var(--crimson);
+}
+
+/* Community Links */
+.community-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
 
 /* Hero CTA Styling */
 .hero-cta {
@@ -492,86 +520,6 @@ body {
     line-height: 1.6;
 }
 
-/* Dev Log Section */
-.devlog-section {
-    margin: 100px 0;
-}
-
-.devlog-entries {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    margin-top: 50px;
-}
-
-.devlog-entry {
-    background: var(--darker-navy);
-    border: var(--pixel-border);
-    padding: 40px;
-    box-shadow: var(--shadow-white);
-}
-
-.entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.entry-title {
-    font-family: 'Press Start 2P', monospace;
-    font-size: 18px;
-    color: var(--crimson);
-    text-shadow: 1px 1px 0px var(--white);
-}
-
-.entry-date {
-    font-size: 16px;
-    color: var(--gray);
-}
-
-.entry-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    text-align: center;
-}
-
-.entry-media {
-    width: 100%;
-    max-width: 400px;
-    background: var(--deep-navy);
-    border: var(--pixel-border);
-    min-height: 225px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
-
-.devlog-img, .devlog-video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    background: var(--deep-navy);
-    border: 1px solid var(--gray);
-}
-
-.devlog-video {
-    background: var(--deep-navy) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23050514'/><polygon points='40,30 40,70 70,50' fill='%23DC143C'/><text x='50' y='85' text-anchor='middle' fill='%23FFFFFF' font-family='VT323' font-size='8'>Video Preview</text></svg>") center/contain no-repeat;
-}
-
-.entry-text {
-    font-size: 18px;
-    color: var(--white);
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
 /* Footer */
 .footer {
     background: var(--darker-navy);
@@ -665,24 +613,14 @@ body {
         font-size: 19px;
     }
     
-    .gameplay-video {
-        height: 350px;
+    .screenshot-slide {
+        width: 300px;
     }
-    
-    .features {
-        padding: 30px 20px;
+
+    .screenshot-carousel {
+        padding: 15px;
     }
-    
-    .features-title {
-        font-size: 20px;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-    
+
     .hero-cta {
         padding: 45px 25px;
     }
@@ -708,14 +646,6 @@ body {
     
     .section-title {
         font-size: 26px;
-    }
-    
-    .entry-content {
-        gap: 20px;
-    }
-    
-    .entry-media {
-        min-height: 180px;
     }
     
     .social-links {
@@ -774,39 +704,20 @@ body {
         margin-bottom: 35px;
     }
     
-    .gameplay-video {
-        height: 280px;
-        margin: 35px auto;
+    .screenshot-slide {
+        width: 260px;
+        max-width: 85vw;
     }
-    
-    .play-icon {
-        font-size: 36px;
+
+    .screenshot-carousel {
+        padding: 10px;
     }
-    
-    .features {
-        padding: 25px 15px;
-        margin: 40px auto;
+
+    .screenshot-caption {
+        font-size: 14px;
+        padding: 10px;
     }
-    
-    .features-title {
-        font-size: 16px;
-        margin-bottom: 25px;
-    }
-    
-    .feature-item {
-        padding: 20px;
-    }
-    
-    .feature-image {
-        height: 140px;
-        margin-bottom: 15px;
-    }
-    
-    .feature-text {
-        font-size: 16px;
-    }
-    
-    
+
     .hero-cta {
         padding: 35px 15px;
         margin: 40px auto;
@@ -864,37 +775,6 @@ body {
         margin-bottom: 25px;
     }
     
-    .devlog-section {
-        margin: 60px 0;
-    }
-    
-    .devlog-entries {
-        gap: 35px;
-    }
-    
-    .devlog-entry {
-        padding: 25px 15px;
-    }
-    
-    .entry-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 20px;
-    }
-    
-    .entry-title {
-        font-size: 14px;
-    }
-    
-    .entry-date {
-        font-size: 14px;
-    }
-    
-    .entry-text {
-        font-size: 16px;
-    }
-    
     .footer {
         padding: 40px 0;
     }
@@ -940,9 +820,9 @@ body {
     .hero-pitch {
         font-size: 24px;
     }
-    
-    .gameplay-video {
-        height: 500px;
+
+    .screenshot-slide {
+        width: 500px;
     }
 }
 
@@ -955,11 +835,6 @@ body {
     
     .form-input {
         min-height: 48px;
-    }
-    
-    /* Increase touch targets */
-    .feature-item {
-        padding: 30px;
     }
 }
 
