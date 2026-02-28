@@ -20,7 +20,7 @@ const CONTENT = {
     emailSubmitButton: "Get Early Access + 500 Souls",
     
     // Footer
-    copyright: "© 2025-2026 Demon Orbit. All rights reserved.",
+    copyright: "© 2025–2026 Demon Orbit. All rights reserved.",
     
     // Links
     discordInvite: "https://discord.gg/bA3EVRBx",
