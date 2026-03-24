@@ -15,9 +15,9 @@ const CONTENT = {
 
     // Email Signup Section
     emailSectionTitle: "Join the Warden's List",
-    emailIncentive: "Get 500 FREE Souls on Launch Day!",
+    emailIncentive: "Get 500 FREE Gems 💎 on Launch Day!",
     emailFieldPlaceholder: "Your Email Address",
-    emailSubmitButton: "Get Early Access + 500 Souls",
+    emailSubmitButton: "Get Early Access + 500 Gems 💎",
     
     // Footer
     copyright: "© 2025–2026 Demon Orbit. All rights reserved.",
@@ -28,7 +28,7 @@ const CONTENT = {
     tiktokUrl: "https://www.tiktok.com/@demonorbitgame",
     
     // Success Messages
-    emailSuccessMessage: "You're in! Check your email to confirm. 500 Souls await on launch day.",
+    emailSuccessMessage: "You're in! Check your email to confirm. 500 Gems 💎 await on launch day.",
     emailErrorMessage: "Please enter a valid email address."
 };
 
