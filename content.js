@@ -23,9 +23,9 @@ const CONTENT = {
     copyright: "© 2025–2026 Demon Orbit. All rights reserved.",
     
     // Links
-    discordInvite: "https://discord.gg/bA3EVRBx",
-    twitterUrl: "https://x.com/demonorbit",
-    tiktokUrl: "https://www.tiktok.com/@demonorbit",
+    discordInvite: "https://discord.gg/tTaZUpHDRq",
+    twitterUrl: "https://x.com/demon_orbit",
+    tiktokUrl: "https://www.tiktok.com/@demonorbitgame",
     
     // Success Messages
     emailSuccessMessage: "You're in! Check your email to confirm. 500 Souls await on launch day.",

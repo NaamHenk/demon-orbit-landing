@@ -52,6 +52,9 @@ function loadContent() {
 
     const tiktokLinks = document.querySelectorAll('a[href*="tiktok"]');
     tiktokLinks.forEach(link => link.href = CONTENT.tiktokUrl);
+
+    const twitterLinks = document.querySelectorAll('a[href*="x.com"]');
+    twitterLinks.forEach(link => link.href = CONTENT.twitterUrl);
 }
 
 // Generate Random Starry Background

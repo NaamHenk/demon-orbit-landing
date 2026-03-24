@@ -1,5 +1,4 @@
-/* Import Pixel Font */
-@import url('https://fonts.googleapis.com/css2?family=VT323:wght@400&family=Press+Start+2P&display=swap');
+/* Pixel Fonts loaded via <link> tags in index.html for better performance */
 
 /* CSS Reset and Variables */
 * {
@@ -588,6 +587,45 @@ body {
     margin-top: 30px;
 }
 
+/* FAQ Section */
+.faq-section {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.faq-item {
+    background: var(--darker-navy);
+    border: var(--crimson-border);
+    padding: 25px 30px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: var(--shadow-crimson);
+}
+
+.faq-question {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--crimson);
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.faq-answer {
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+    color: var(--light-gray);
+    line-height: 1.6;
+}
+
 /* Responsive Design */
 
 /* Tablet Styles */
@@ -644,6 +682,10 @@ body {
         flex-direction: column;
         align-items: center;
         gap: 25px;
+    }
+
+    .faq-question {
+        font-size: 12px;
     }
 }
 
@@ -788,6 +830,18 @@ body {
         font-size: 18px;
     }
     
+    .faq-item {
+        padding: 20px 15px;
+    }
+
+    .faq-question {
+        font-size: 11px;
+    }
+
+    .faq-answer {
+        font-size: 16px;
+    }
+
     /* Hide extra planets on mobile */
     .mobile-hidden {
         display: none;
