@@ -917,3 +917,19 @@ body {
         background: rgba(255, 255, 255, 0.9);
     }
 }
+/* Footer legal link */
+.footer-legal {
+    margin: 0 0 12px;
+}
+
+.footer-legal a {
+    color: var(--gray);
+    font-size: 18px;
+    text-decoration: underline;
+    text-decoration-color: var(--crimson);
+    text-underline-offset: 3px;
+}
+
+.footer-legal a:hover {
+    color: var(--white);
+}
