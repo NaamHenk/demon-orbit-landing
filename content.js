@@ -10,7 +10,7 @@ const CONTENT = {
     discordNavText: "Join Discord",
     
     // Hero Section
-    heroPitch: "In Demon Orbit, defend the Solar System from escaping archdemons using rhythmic taps and precise holds. Manage your faith resource wisely or watch sins unleash chaos across the cosmos!",
+    heroPitch: "In Demon Orbit, defend the Solar System from escaping archdemons with well-timed taps and precise holds. Manage your faith resource wisely or watch sins unleash chaos across the cosmos!",
     primaryCTA: "Get Early Access",
 
     // Email Signup Section
